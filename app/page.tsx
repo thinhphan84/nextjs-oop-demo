@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import CreateUserForm from "@/components/CreateUserForm";
 import UserTable from "@/components/UserTable";
 import { User } from "@/models/user/User";
@@ -68,20 +67,20 @@ export default function HomePage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">
+      <h1 className="text-3xl font-bold mb-6 text-center text-black">
         NextJS OOP CRUD Demo
       </h1>
       {loading ? (
         <p className="text-center">Loading...</p>
       ) : (
-        <>
+        <div>
           <UserTable
             users={users}
             onEdit={handleEdit}
             onDelete={handleDelete}
           />
           <CreateUserForm onUserCreated={handleUserCreated} />
-        </>
+        </div>
       )}
     </div>
   );

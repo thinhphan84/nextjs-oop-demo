@@ -8,7 +8,7 @@ export async function GET() {
   try {
     const userService = container.get<IUserService>(TYPES.IUserService);
     const users: User[] = await userService.getAllUsers();
-
+    console.log(users);
     return NextResponse.json({ users }, { status: 200 });
   } catch (error: unknown) {
     if (error instanceof Error) {
