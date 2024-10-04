@@ -39,7 +39,7 @@ export default function HomePage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Bạn có chắc chắn muốn xóa người dùng này?")) {
+    if (confirm("Are you that you want to delete this user?")) {
       try {
         const res = await fetch(`/api/users/${id}`, {
           method: "DELETE",
