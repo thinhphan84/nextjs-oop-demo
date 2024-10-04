@@ -49,7 +49,8 @@ export default function HomePage() {
         if (data.user) {
           setUsers(users.filter((user) => user.id !== id));
         } else {
-          alert(data.error);
+          // alert(data.error);
+          window.location.reload();
         }
       } catch (error: unknown) {
         if (error instanceof Error) {
