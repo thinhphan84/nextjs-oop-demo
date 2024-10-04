@@ -12,7 +12,7 @@ interface UserTableProps {
 const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full bg-white border border-gray-200">
+      <table className="min-w-full bg-white text-black border border-gray-200">
         <thead>
           <tr>
             <th className="py-2 px-4 border-b">Username</th>
@@ -24,7 +24,7 @@ const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
         </thead>
         <tbody>
           {users.map(user => (
-            <tr key={user.id} className="text-center">
+            <tr key={user.id} className="text-center text-black">
               <td className="py-2 px-4 border-b">{user.username}</td>
               <td className="py-2 px-4 border-b">{user.email}</td>
               <td className="py-2 px-4 border-b">{user.role.name}</td>

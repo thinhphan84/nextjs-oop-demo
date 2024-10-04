@@ -82,7 +82,7 @@ const CreateUserForm: React.FC<CreateUserFormProps> = ({ onUserCreated }) => {
         type="submit"
         disabled={loading}
         className={`w-full px-4 py-2 text-white rounded ${
-          loading ? 'bg-gray-400' : 'bg-green-500 hover:bg-green-600'
+          loading ? 'bg-gray-600' : 'bg-green-500 hover:bg-green-600'
         }`}
       >
         {loading ? 'Creating...' : 'Create User'}
