@@ -35,8 +35,12 @@ const CreateUserForm: React.FC<CreateUserFormProps> = ({ onUserCreated }) => {
         alert(data.error);
       }
       window.location.reload();
-    } catch (error: any) {
-      alert(error.message);
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("An unknown error occurred");
+      }
     } finally {
       setLoading(false);
     }

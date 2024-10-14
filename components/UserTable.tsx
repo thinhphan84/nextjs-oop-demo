@@ -1,7 +1,6 @@
 "use client";
 
 import { User } from "@/models/user/User";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 interface UserTableProps {
@@ -11,7 +10,7 @@ interface UserTableProps {
 }
 
 const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <div className="overflow-x-auto">
