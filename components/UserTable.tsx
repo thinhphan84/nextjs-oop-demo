@@ -1,15 +1,18 @@
-'use client'
+"use client";
 
-import { User } from '@/models/user/User'
-import React from 'react'
+import { User } from "@/models/user/User";
+import { useRouter } from "next/navigation";
+import React from "react";
 
 interface UserTableProps {
-  users: User[]
-  onEdit: (id: string) => void
-  onDelete: (id: string) => void
+  users: User[];
+  onEdit: (id: string) => void;
+  onDelete: (id: string) => void;
 }
 
 const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
+  const router = useRouter();
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white text-black border border-gray-200">
@@ -28,7 +31,9 @@ const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
               <td className="py-2 px-4 border-b">{user.username}</td>
               <td className="py-2 px-4 border-b">{user.email}</td>
               <td className="py-2 px-4 border-b">{user.role.name}</td>
-              <td className="py-2 px-4 border-b">{user.createdAt.toLocaleString()}</td>
+              <td className="py-2 px-4 border-b">
+                {user.createdAt.toLocaleString()}
+              </td>
               <td className="py-2 px-4 border-b space-x-2">
                 <button
                   onClick={() => onEdit(user.id)}
@@ -48,7 +53,7 @@ const UserTable: React.FC<UserTableProps> = ({ users, onEdit, onDelete }) => {
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default UserTable
+export default UserTable;

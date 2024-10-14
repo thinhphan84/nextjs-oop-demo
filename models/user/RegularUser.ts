@@ -8,6 +8,6 @@ export class RegularUser extends User {
 
   changeRole(newRole: Role): void {
     console.log(newRole);
-    throw new Error("User không có quyền thay đổi vai trò.");
+    throw new Error("User is not allowed to change other users' role");
   }
 }

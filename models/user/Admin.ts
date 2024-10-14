@@ -8,6 +8,6 @@ export class Admin extends User {
 
   changeRole(newRole: Role): void {
     console.log(newRole);
-    throw new Error("Admin không có quyền thay đổi vai trò người dùng khác.");
+    throw new Error("Admin is not allowed to change other users' role");
   }
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import CreateUserForm from "@/components/CreateUserForm";
 import UserTable from "@/components/UserTable";
 import { User } from "@/models/user/User";
@@ -40,7 +39,7 @@ export default function HomePage() {
   };
 
   const handleDelete = async (id: string) => {
-    if (confirm("Bạn có chắc chắn muốn xóa người dùng này?")) {
+    if (confirm("Are you that you want to delete this user?")) {
       try {
         const res = await fetch(`/api/users/${id}`, {
           method: "DELETE",
@@ -50,7 +49,8 @@ export default function HomePage() {
         if (data.user) {
           setUsers(users.filter((user) => user.id !== id));
         } else {
-          alert(data.error);
+          // alert(data.error);
+          window.location.reload();
         }
       } catch (error: unknown) {
         if (error instanceof Error) {
@@ -68,20 +68,20 @@ export default function HomePage() {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl text-black font-bold mb-6 text-center">
+      <h1 className="text-3xl font-bold mb-6 text-center text-black">
         NextJS OOP CRUD Demo
       </h1>
       {loading ? (
         <p className="text-center">Loading...</p>
       ) : (
-        <>
+        <div>
           <UserTable
             users={users}
             onEdit={handleEdit}
             onDelete={handleDelete}
           />
           <CreateUserForm onUserCreated={handleUserCreated} />
-        </>
+        </div>
       )}
     </div>
   );
